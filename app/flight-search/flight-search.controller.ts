@@ -9,18 +9,22 @@ export class FlightSearchController {
         this.$http = $http;
     }
 
-    from: string = 'Graz';
-    to: string = 'Hamburg';
+    id: Number;
+    name: string = 'Muster';
+    firstName: string = 'Max';
+    passengerStatus: string;
     selectedFlight: Flight;
 
     passengers: Array<Flight> = [];
 
     search() {
 
-        var url = "http://www.angular.at/api/passenger?name=Muster";
+        var url = "http://www.angular.at/api/passenger";
         var params = {
-         //   from: this.from,
-         //   to: this.to
+         //   id: this.id,
+            name: this.name,
+            firstname: this.firstName,
+        //    passengerStatus: this.passengerStatus
         };
 
         this
