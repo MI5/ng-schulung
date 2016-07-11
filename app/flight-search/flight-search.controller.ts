@@ -3,11 +3,16 @@ import {Flight} from "../entities/flight";
 
 export class FlightSearchController {
 
+    /*
     private $http: angular.IHttpService;
 
     constructor($http: angular.IHttpService) {
         this.$http = $http;
     }
+    vs.*/
+    constructor (private $http:angular.IHttpService) {}
+
+
 
     id: Number;
     name: string = 'Muster';
@@ -30,7 +35,7 @@ export class FlightSearchController {
 
         this
             .$http
-            .get(url, { params: params })
+            .get(url, { params: params }) // ES6:  { params}
             .then(resp => {
                 this.passengers = <any> resp.data;
             })
