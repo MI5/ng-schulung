@@ -37,12 +37,12 @@
             <button class="btn btn-primary" data-ng-click="vm.search()">Search!</button>
         </div>
 
-        <table data-ng-show="vm.Passenger.length > 0" class="table table-striped">
-            <tr data-ng-repeat="f in vm.flights" data-ng-class="{ active: f === vm.selectedFlight }">
+        <table data-ng-show="vm.passengers.length > 0" class="table table-striped">
+            <tr data-ng-repeat="f in vm.passengers" data-ng-class="{ active: f === vm.selectedFlight }">
                 <td>{{f.id}}</td>
                 <td>{{f.firstName}}</td>
                 <td>{{f.name}}</td>
-                <td>{{f.passengerStatus}}</td>
+                <td>{{f.passengerStatus | pStatus:'short'}}</td>
                 <td><a href="" data-ng-click="vm.select(f)">Select!</a></td>
             </tr>
         </table>
