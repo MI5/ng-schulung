@@ -12,38 +12,38 @@
 
 </head>
 
-<body ng-app="flight-app" ng-controller="flightSearch as vm">
+<body data-ng-app="flight-app" data-ng-controller="flightSearch as vm">
 
     <div class="container">
 
         <h1>Passenger Search!</h1>
         <div class="form-group">
             <label>ID:</label>
-            <input class="form-control" ng-model="vm.id" title="">
+            <input class="form-control" data-ng-model="vm.id" title="">
         </div>
         <div class="form-group">
             <label>Firstname:</label>
-            <input class="form-control" ng-model="vm.firstName" title="">
+            <input class="form-control" data-ng-model="vm.firstName" title="">
         </div>
         <div class="form-group">
             <label>Name:</label>
-            <input class="form-control" ng-model="vm.name" title="">
+            <input class="form-control" data-ng-model="vm.name" title="">
         </div>
         <div class="form-group">
             <label>PassengerStatus:</label>
-            <input class="form-control" ng-model="vm.passengerStatus" title="">
+            <input class="form-control" data-ng-model="vm.passengerStatus" title="">
         </div>
         <div class="form-group">
-            <button class="btn btn-primary" ng-click="vm.search()">Search!</button>
+            <button class="btn btn-primary" data-ng-click="vm.search()">Search!</button>
         </div>
 
-        <table ng-show="vm.Passenger.length > 0" class="table table-striped">
-            <tr ng-repeat="f in vm.flights" ng-class="{ active: f === vm.selectedFlight }">
+        <table data-ng-show="vm.Passenger.length > 0" class="table table-striped">
+            <tr data-ng-repeat="f in vm.flights" data-ng-class="{ active: f === vm.selectedFlight }">
                 <td>{{f.id}}</td>
                 <td>{{f.firstName}}</td>
                 <td>{{f.name}}</td>
                 <td>{{f.passengerStatus}}</td>
-                <td><a href="" ng-click="vm.select(f)">Select!</a></td>
+                <td><a href="" data-ng-click="vm.select(f)">Select!</a></td>
             </tr>
         </table>
 

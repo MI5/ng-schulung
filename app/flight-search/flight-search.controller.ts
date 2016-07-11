@@ -12,6 +12,7 @@ export class FlightSearchController {
     id: Number;
     name: string = 'Muster';
     firstName: string = 'Max';
+    //noinspection JSUnusedGlobalSymbols
     passengerStatus: string;
     selectedFlight: Flight;
 
@@ -31,7 +32,7 @@ export class FlightSearchController {
             .$http
             .get(url, { params: params })
             .then(resp => {
-                this.passengers =  <any> resp.data;
+                this.passengers = <any> resp.data;
             })
             .catch(resp => {
                 console.error("Error fetching data via HTTP");
