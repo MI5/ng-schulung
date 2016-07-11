@@ -1,5 +1,6 @@
 import * as angular from 'angular';
 import {Flight} from "../entities/flight";
+import {PassengerService} from "../Services/passengerSearch.service";
 
 export class FlightSearchController {
 
@@ -10,7 +11,7 @@ export class FlightSearchController {
         this.$http = $http;
     }
     vs.*/
-    constructor (private $http:angular.IHttpService) {}
+    constructor (private passengerService: PassengerService) {}
 
 
 
@@ -24,19 +25,8 @@ export class FlightSearchController {
     passengers: Array<Flight> = [];
 
     search() {
-
-        var url = "http://www.angular.at/api/passenger";
-        var params = {
-         //   id: this.id,
-            name: this.name,
-            firstname: this.firstName,
-        //    passengerStatus: this.passengerStatus
-        };
-
-        this
-            .$http
-            .get(url, { params: params }) // ES6:  { params}
-            .then(resp => {
+        this.passengerService.find(this.firstName, this.name)
+        .then(resp => {
                 this.passengers = <any> resp.data;
             })
             .catch(resp => {
