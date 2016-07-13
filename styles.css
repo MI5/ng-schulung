@@ -1,0 +1,8 @@
+
+input.ng-invalid {
+    border-left: 5px solid hotpink;
+}
+
+input.ng-valid {
+    border-left: 5px solid lime;
+}

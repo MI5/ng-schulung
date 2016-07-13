@@ -6,6 +6,7 @@
 
     <!-- Bootstrap -->
     <link href="node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <link href="styles.css" rel="stylesheet" />
 
     <script src="dist/vendor.js"></script>
     <script src="dist/app.js"></script>
@@ -17,26 +18,34 @@
     <div class="container">
 
         <h1>Passenger Search!</h1>
-        <div class="form-group">
-            <label>ID:</label>
-            <input class="form-control" data-ng-model="vm.id" title="">
-        </div>
-        <div class="form-group">
-            <label>Firstname:</label>
-            <input class="form-control" data-ng-model="vm.firstName" title="">
-        </div>
-        <div class="form-group">
-            <label>Name:</label>
-            <input class="form-control" data-ng-model="vm.name" title="">
-        </div>
-        <div class="form-group">
-            <label>PassengerStatus:</label>
-            <input class="form-control" data-ng-model="vm.passengerStatus" title="">
-        </div>
-        <div class="form-group">
-            <button class="btn btn-primary" data-ng-click="vm.search()">Search!</button>
-        </div>
+        <form name="form" novalidate> <!-- novalidate : Deactivate HTML5-validation -->
+          <div class="form-group">
+              <label>ID:</label>
+              <input class="form-control" data-ng-model="vm.id" title="">
+          </div>
+          <div class="form-group">
+              <label>Firstname:</label>
+              <input class="form-control" data-ng-model="vm.firstName" title="">
+          </div>
+          <div class="form-group">
+              <label>Name:</label>
+              <input class="form-control" data-ng-model="vm.name" title="">
+          </div>
+          <div class="form-group">
+              <label>PassengerStatus:</label>
+              <input name="passenger" class="form-control" required pattern="[ABC]" data-ng-model="vm.passengerStatus" title="">
 
+              <div ng-if="form.passenger.$error">
+                  !error!
+              </div>
+              <div ng-if="form.passenger.$valid">
+                  Es ist valide
+              </div>
+          </div>
+          <div class="form-group">
+              <button ng-diabled="" class="btn btn-primary" data-ng-click="vm.search()">Search!</button>
+          </div>
+        </form>
         <table data-ng-show="vm.passengers.length > 0" class="table table-striped">
             <tr data-ng-repeat="f in vm.passengers" data-ng-class="{ active: f === vm.selectedFlight }">
                 <td>{{f.id}}</td>
