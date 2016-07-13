@@ -35,15 +35,15 @@
               <label>PassengerStatus:</label>
               <input name="passenger" class="form-control" required pattern="[ABC]" data-ng-model="vm.passengerStatus" title="">
 
-              <div ng-if="form.passenger.$error">
+              <div data-ng-if="form.passenger.$error">
                   !error!
               </div>
-              <div ng-if="form.passenger.$valid">
+              <div data-ng-if="form.passenger.$valid">
                   Es ist valide
               </div>
           </div>
           <div class="form-group">
-              <button ng-diabled="" class="btn btn-primary" data-ng-click="vm.search()">Search!</button>
+              <button data-ng-diabled="" class="btn btn-primary" data-ng-click="vm.search()">Search!</button>
           </div>
         </form>
         <table data-ng-show="vm.passengers.length > 0" class="table table-striped">

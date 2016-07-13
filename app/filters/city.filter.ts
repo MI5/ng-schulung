@@ -5,7 +5,7 @@
 
 
 export function createPassengerStatusFilter() {
-    var filter = function(status, fmt) {
+    return function(status, fmt) {
         var short;
         var long;
 
@@ -28,6 +28,4 @@ export function createPassengerStatusFilter() {
 
         return fmt === 'short' ? short : long;
     };
-
-    return filter;
 }
